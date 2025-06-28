@@ -1,0 +1,5 @@
+{
+  "layer": "bottom",
+  "modules-left": ["tray"],
+  "modules-right": ["battery"]
+}
