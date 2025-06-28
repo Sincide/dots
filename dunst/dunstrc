@@ -1,0 +1,7 @@
+[global]
+font = JetBrains Mono 10
+
+[urgency_low]
+timeout = 3
+background = "#222222"
+foreground = "#FFFFFF"
