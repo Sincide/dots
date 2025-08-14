@@ -1,0 +1,4 @@
+# Recommended fonts for the Quickshell setup
+Inter
+Nerd Font Symbols
+JetBrainsMono Nerd Font

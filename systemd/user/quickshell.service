@@ -1,0 +1,11 @@
+[Unit]
+Description=Quickshell Wayland panel
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/quickshell --file %h/.config/quickshell/main.qml
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
