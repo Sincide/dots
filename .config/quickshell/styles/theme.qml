@@ -14,6 +14,9 @@ QtObject {
     // Exposed palette
     readonly property color background: colors.base
     readonly property color foreground: colors.text
+    readonly property color mantle: colors.mantle
+    readonly property color surface0: colors.surface0
+    readonly property color overlay0: colors.overlay0
 
     function readFile(path) {
         var xhr = new XMLHttpRequest();

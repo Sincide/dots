@@ -10,6 +10,11 @@ StatusModule {
     Text {
         id: label
         anchors.centerIn: parent
-        text: new Date(Date.parse(date.payload.iso || Date.now())).toLocaleString()
+        text: (function() {
+            var iso = date.payload.iso;
+            var d = iso ? new Date(iso) : new Date();
+            if (isNaN(d.getTime())) d = new Date();
+            return d.toLocaleString();
+        })()
     }
 }

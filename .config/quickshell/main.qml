@@ -13,11 +13,11 @@ Quickshell {
     Component.onCompleted: {
         for (var i = 0; i < Quickshell.screens.length; ++i) {
             var s = Quickshell.screens[i]
-            topComponent.createObject(root, {"screen": s})
-            bottomComponent.createObject(root, {"screen": s})
+            topComponent.createObject(root, {"screen": s, "theme": theme})
+            bottomComponent.createObject(root, {"screen": s, "theme": theme})
         }
-        configComponent.createObject(root)
-        notifComponent.createObject(root)
+        configComponent.createObject(root, {"theme": theme})
+        notifComponent.createObject(root, {"theme": theme})
     }
 
     Component { id: topComponent; TopBar {} }

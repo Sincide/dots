@@ -28,13 +28,18 @@ Item {
         onTriggered: proc.start()
     }
 
+    Component.onCompleted: proc.start()
+
     Process {
         id: proc
         command: root.script
         onExited: {
             if (stdout.length > 0) {
-                // Expect JSON from script
-                payload = JSON.parse(stdout)
+                try {
+                    payload = JSON.parse(stdout)
+                } catch (e) {
+                    payload = { text: stdout.trim() }
+                }
             }
         }
     }
