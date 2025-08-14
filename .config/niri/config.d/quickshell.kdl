@@ -1,0 +1,8 @@
+// Quickshell integration for Niri
+spawn-on-start "systemctl --user start quickshell.service"
+spawn-on-start "systemctl --user start swaync.service"
+
+keybindings {
+    "Mod+N" { run "quickshell msg toggle notifpanel" }
+    "Mod+C" { run "quickshell msg toggle configpanel" }
+}
