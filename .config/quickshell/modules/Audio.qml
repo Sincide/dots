@@ -11,18 +11,28 @@ StatusModule {
     Text {
         id: label
         anchors.centerIn: parent
-        text: (audio.payload.muted ? "\uF6A9" : "\uF028") + " " + (audio.payload.volume || 0) + "%" // Font Awesome icons
+        text: (function() {
+            var muted = !!(audio.payload && audio.payload.muted);
+            var vol = (audio.payload && audio.payload.volume) ? audio.payload.volume : 0;
+            return (muted ? "\uF6A9" : "\uF028") + " " + vol + "%";
+        })()
     }
 
     MouseArea {
         anchors.fill: parent
-        onClicked: Process { command: audio.script + " --click"; start() }
+        acceptedButtons: Qt.LeftButton | Qt.MiddleButton
+        onClicked: {
+            if (mouse.button === Qt.LeftButton) {
+                Process { command: audio.script + " --click"; start() }
+            } else if (mouse.button === Qt.MiddleButton) {
+                Process { command: audio.script + " --middle"; start() }
+            }
+        }
         onWheel: {
             if (wheel.angleDelta.y > 0)
                 Process { command: audio.script + " --scroll-up"; start() }
             else
                 Process { command: audio.script + " --scroll-down"; start() }
         }
-        onMiddleClicked: Process { command: audio.script + " --middle"; start() }
     }
 }

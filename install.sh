@@ -15,7 +15,7 @@ if [[ $ID != 'arch' ]]; then
   exit 1
 fi
 
-PKGS=(quickshell swaync hyprland niri wl-clipboard cliphist playerctl brightnessctl upower powerprofilesctl lm_sensors jq networkmanager bluez bluez-utils grim slurp satty fuzzel wlogout fastfetch)
+PKGS=(quickshell swaync hyprland niri wl-clipboard cliphist playerctl brightnessctl upower powerprofilesctl lm_sensors jq networkmanager bluez bluez-utils grim slurp satty fuzzel wlogout fastfetch fzf kitty radeontop)
 
 echo '[install] Installing packages via yay'
 if ! command -v yay >/dev/null 2>&1; then

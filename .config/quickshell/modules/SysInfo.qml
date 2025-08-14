@@ -10,6 +10,10 @@ StatusModule {
     Text {
         id: label
         anchors.centerIn: parent
-        text: Math.round((sys.payload.mem.used / sys.payload.mem.total) * 100) + "% RAM"
+        text: (function() {
+            var m = sys.payload && sys.payload.mem;
+            if (!m || !m.total || m.total === 0) return "-- RAM";
+            return Math.round((m.used / m.total) * 100) + "% RAM";
+        })()
     }
 }

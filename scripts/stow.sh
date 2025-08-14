@@ -1,4 +1,3 @@
-cat <<'EOF' > scripts/stow.sh
 #!/usr/bin/env bash
 # Wrapper around GNU Stow to manage symlinks for this dotfiles repo.
 # It enables both stow and unstow operations with sane defaults.

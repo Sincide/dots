@@ -4,7 +4,8 @@
 set -Eeuo pipefail
 IFS=$'\n\t'
 
-WM=$(scripts/wm-detect.sh 2>/dev/null || true)
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+WM=$("$SCRIPT_DIR"/wm-detect.sh 2>/dev/null || true)
 case $WM in
   hyprland)
     hyprctl activewindow -j | jq -r '.title // ""'

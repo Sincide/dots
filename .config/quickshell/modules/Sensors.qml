@@ -10,6 +10,11 @@ StatusModule {
     Text {
         id: label
         anchors.centerIn: parent
-        text: sens.payload.sensors ? sens.payload.sensors[0].temp1_input + "°C" : "--"
+        text: (function() {
+            var s = sens.payload && sens.payload.sensors;
+            if (!s || s.length === 0) return "--";
+            var v = s[0] && s[0].temp1_input;
+            return (v !== undefined && v !== null) ? (v + "°C") : "--";
+        })()
     }
 }

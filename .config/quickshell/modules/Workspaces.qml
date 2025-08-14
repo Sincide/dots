@@ -11,7 +11,7 @@ StatusModule {
         anchors.centerIn: parent
         spacing: 4
         Repeater {
-            model: ws.payload.length
+            model: (Array.isArray(ws.payload) ? ws.payload.length : 0)
             delegate: Rectangle {
                 width: 12; height: 12; radius: 6
                 color: ws.payload[index].active ? "#89b4fa" : "#585b70" // Catppuccin colors

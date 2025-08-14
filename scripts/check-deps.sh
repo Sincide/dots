@@ -26,6 +26,9 @@ DEPS=(
   grim
   slurp
   satty
+  fzf
+  kitty
+  radeontop
 )
 
 missing=()
